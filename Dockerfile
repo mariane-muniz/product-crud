@@ -2,7 +2,7 @@ FROM maven:3.5.2-jdk-8-alpine
 COPY pom.xml /maven-build/
 COPY src/ /maven-build/src/
 WORKDIR /maven-build/
-RUN mvn clean package -X
+RUN mvn clean package -q
 
 FROM openjdk:8-jdk
 WORKDIR /root/
