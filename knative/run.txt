@@ -5,7 +5,6 @@ tkn task start build --showlog \
   -p CONTEXT=. \
   -s pipeline
   
-
 tkn task start deploy --showlog \
   --prefix-name product-crud \
   -p image=docker.io/marianemuniz/product-crud \
