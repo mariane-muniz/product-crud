@@ -1,0 +1,14 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: product-crud
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+        autoscaling.knative.dev/maxScale: "2"
+    spec:
+      containers:
+        - image: docker.io/marianemuniz/product-crud
+          imagePullPolicy: Always

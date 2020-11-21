@@ -1,0 +1,22 @@
+tkn task start build --showlog \
+  --prefix-name product-crud \
+  -p repo-url=https://github.com/mariane-muniz/product-crud \
+  -p image=docker.io/marianemuniz/product-crud:v1 \
+  -p CONTEXT=. \
+  -s pipeline
+  
+
+tkn task start deploy --showlog \
+  --prefix-name product-crud \
+  -p image=docker.io/marianemuniz/product-crud \
+  -p repo-url=https://github.com/mariane-muniz/product-crud \
+  -p dir=knative \
+  -p yaml=service.yaml \
+  -s pipeline
+
+tkn pipeline start build-deploy --showlog \
+  --prefix-name product-crud \
+  -p image=docker.io/marianemuniz/product-crud \
+  -p CONTEXT=. \
+  -p repo-url=https://github.com/mariane-muniz/product-crud \
+  -s pipeline
